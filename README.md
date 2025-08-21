@@ -1,14 +1,33 @@
-# nbody-optimizer
-Simulates the gravitational forces between hundreds of particles
+# nbody-optimizer 
 
-## Usage
+A C++ simulation of gravitational forces between hundreds or thousands of particles, with Python scripts for analysis and visualization.
 
-1. Clone and `cd` into repo
+## Overview
 
-2. `mkdir build && cd build`
+This project simulates N-body gravitational interactions:
 
-3. `cmake ..`
+- **Physics & Simulation**: implemented in C++
+- **Visualization & Analysis**: Python scripts for plotting and animation
+- **Alogirhtms**:
+    - Start with a naive $O(n^2)$ Runge-Kutta integrator
+    - Later optimizz using the Barnes-Hut algorithm for $O(N\text{log } N)$ runtime
 
-4. `cmake --build`
+## Features (planned)
 
-5. `./nbody` 
+- Configurable number of particles, timesteps, and time step size
+- Output particle positions/velocities per timestep to CSV
+- Python scripts to visualize trajectories and energy evolution
+- Modular design: reusable physics library
+
+## Getting Started 
+
+### Build Instructions
+
+```bash
+git clone https://github.com/icewarbler/nbody-optimizer.git
+cd nbody-optimizer
+mkdir build && cd build
+cmake ..
+cmake --build .
+./nbody
+```

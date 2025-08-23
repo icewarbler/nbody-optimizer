@@ -18,9 +18,41 @@ public:
     ~Vector3() = default;
 
     // Access
+    double operator[](int i) const { return e[i]; }
     double& operator[](int i) { return e[i]; }
+
+    double x() const { return e[0]; }
+    double y() const { return e[1]; }
+    double z() const { return e[2]; }
 
     double& x() { return e[0]; }
     double& y() { return e[1]; }
     double& z() { return e[2]; }
+
+    // Arithmetic
+    Vector3 operator-() const { return Vector3(-e[0], -e[1], -e[2]); }
+
+    Vector3 operator+=(const Vector3& other)
+    {
+        e[0] += other.e[0];
+        e[1] += other.e[1];
+        e[2] += other.e[2];
+        return *this;
+    }
+
+    Vector3 operator-=(const Vector3& other)
+    {
+        e[0] -= other.e[0];
+        e[1] -= other.e[1];
+        e[2] -= other.e[2];
+        return *this;
+    }
+
+    Vector3 operator*=(double num)
+    {
+        e[0] *= num;
+        e[1] *= num;
+        e[2] *= num;
+        return *this;
+    }
 }

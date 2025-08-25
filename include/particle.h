@@ -15,6 +15,7 @@ public:
     Vector3 getPosition() const { return position; }
     Vector3 getVelocity() const { return velocity; }
     Vector3 getAcceleration() const { return acceleration; }
+    double getMass() const { return mass; }
 
     void setPosition(const Vector3& pos) { position=pos; }
     void setVelocity(const Vector3& vel) { velocity=vel; }

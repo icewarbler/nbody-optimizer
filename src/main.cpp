@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <particle.h>
+#include "particle.h"
 
 int main(int argc, char* argv[])
 {
@@ -14,6 +14,6 @@ int main(int argc, char* argv[])
     p.updatePosition(0.01);
 
     std::cout << p.getPosition();
-    
+
     return 0;
 }

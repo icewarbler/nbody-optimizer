@@ -12,7 +12,7 @@ public:
     Vector3(double e0, double e1, double e2) : e{e0, e1, e2} {}
 
     // Copy Constructor
-    Vector3(const Vector3& new) = default;
+    Vector3(const Vector3& other) = default;
 
     // Destructor
     ~Vector3() = default;
@@ -55,4 +55,30 @@ public:
         e[2] *= num;
         return *this;
     }
+
+    // friend functions for vector access
+    friend Vector3 operator*(const Vector3& a, const Vector3& b);
+    friend Vector3 operator*(const Vector3& vec, double num);
+    friend Vector3 operator+(const Vector3& a, const Vector3& b);
+
+    friend std::ostream& operator<<(std::ostream& out, const Vector3& vec) 
+    {
+        return out << "(" << vec.e[0] << ", " << vec.e[1] << ", " << vec.e[2] << ")";
+    }
+};
+
+// Vector operations
+inline Vector3 operator*(const Vector3& a, const Vector3& b)
+{
+    return Vector3(a.e[0]*b.e[0], a.e[1]*b.e[1], a.e[2]*b.e[2]);
+}
+
+inline Vector3 operator+(const Vector3& a, const Vector3& b)
+{
+    return Vector3(a.e[0]+b.e[0], a.e[1]+b.e[1], a.e[2]+b.e[2]);
+}
+
+inline Vector3 operator*(const Vector3& vec, double num) 
+{
+    return Vector3(vec.e[0] * num, vec.e[1] * num, vec.e[2] * num);
 }

@@ -7,9 +7,19 @@ private:
     Vector3 velocity;
     Vector3 acceleration;
     double mass;
+
+public:
+    particle(const Vector3& pos, const Vector3& vel, const Vector3 accel, double m)
+        : position(pos), velocity(vel), acceleration(accel), mass(m) {}
+
+    Vector3 getPosition() const { return position; }
+    Vector3 getVelocity() const { return velocity; }
+    Vector3 getAcceleration() const { return acceleration; }
+
+    void setPosition(const Vector3& pos) { position=pos; }
+    void setVelocity(const Vector3& vel) { velocity=vel; }
+    void setAcceleration(const Vector3& accel) { acceleration=accel; }
+
+    Vector3 updatePosition(double dt) { position += velocity*dt; return position; }
+
 };
-
-// Returns an updated position
-Vector3 updatePosition(double dt);
-
-Vector3 applyForce(Vector3 )
